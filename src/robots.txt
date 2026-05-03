@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://maxvanderlinden.github.io/photography-website/sitemap.xml
