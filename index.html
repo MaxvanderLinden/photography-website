@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lars van Straalen — Architecture Photography</title>
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Georgia, serif;
+      background-color: #f9f9f9;
+      color: #222;
+    }
+
+    header {
+      padding: 3rem 2rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: normal;
+      letter-spacing: 0.05em;
+    }
+
+    header p {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+      color: #666;
+      font-style: italic;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: 0.8rem;
+      color: #999;
+      border-top: 1px solid #ddd;
+      margin-top: 4rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Lars van Straalen</h1>
+    <p>Architecture Photography</p>
+  </header>
+
+  <main>
+    <!-- Portfolio content goes here -->
+  </main>
+
+  <footer>
+    <p>
+      &copy; <span id="year"></span> Lars van Straalen. All rights reserved.
+      No part of this website, including photographs, may be reproduced,
+      distributed, or used in any form without prior written permission from Lars van Straalen.
+    </p>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>
