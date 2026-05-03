@@ -4,7 +4,7 @@ layout: base.njk
 ---
 <main class="grid">
   {% for project in collections.project | reverse %}
-  <a href="{{ project.url }}" class="grid-item">
+  <a href="{{ project.url | url }}" class="grid-item">
     {% image project.data.thumbnail, project.data.title, "(min-width: 800px) 50vw, 100vw" %}
     <span class="grid-item__title">{{ project.data.title }}</span>
   </a>
