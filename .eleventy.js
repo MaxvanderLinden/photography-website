@@ -32,9 +32,12 @@ async function imageShortcode(src, alt, sizes = "100vw") {
 
 module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets");
-  eleventyConfig.addPassthroughCopy("src/CNAME");
+  eleventyConfig.addPassthroughCopy("src/robots.txt");
   eleventyConfig.addNunjucksAsyncShortcode("image", imageShortcode);
   eleventyConfig.addFilter("dateYear", () => new Date().getFullYear());
+  eleventyConfig.addFilter("htmlDateString", (date) => {
+    return new Date(date).toISOString().split("T")[0];
+  });
 
   return {
     dir: {
