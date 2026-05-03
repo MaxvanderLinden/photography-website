@@ -1,0 +1,417 @@
+/* ============================================================
+   Custom properties
+   ============================================================ */
+
+:root {
+  --color-bg: #ffffff;
+  --color-text: #000000;
+  --color-muted: #999999;
+  --color-border: #999999;
+
+  --font-main: "Helvetica Neue", Helvetica, Arial, sans-serif;
+
+  --x: 1rem;
+  --y: 1.3rem;
+  --nav-height: calc(var(--x) * 2 + var(--y));
+
+  --grid-cols: 2;
+  --grid-gap: 4px;
+}
+
+@media (min-width: 640px) {
+  :root {
+    --x: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --grid-cols: 4;
+  }
+}
+
+/* ============================================================
+   Reset & base
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  color: var(--color-text);
+  font-family: var(--font-main);
+  font-size: clamp(13px, 1vw, 16px);
+  font-weight: 400;
+  letter-spacing: 0.0125em;
+  line-height: 1.3;
+  padding-top: var(--nav-height);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ============================================================
+   Typography
+   ============================================================ */
+
+h1, h2, h3 {
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+/* ============================================================
+   Navigation
+   ============================================================ */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--x);
+  border-bottom: 1px solid var(--color-border);
+  background-color: var(--color-bg);
+}
+
+.nav__name {
+  font-size: clamp(13px, 1vw, 16px);
+  font-weight: 400;
+  letter-spacing: 0.0125em;
+}
+
+.nav__links {
+  display: flex;
+  gap: var(--x);
+}
+
+.nav__links a {
+  font-size: clamp(13px, 1vw, 16px);
+  font-weight: 400;
+  letter-spacing: 0.0125em;
+  color: var(--color-text);
+}
+
+@media (hover: hover) {
+  .nav__links a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.3em;
+  }
+}
+
+/* ============================================================
+   Grid — homepage
+   ============================================================ */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols), 1fr);
+  gap: var(--grid-gap);
+  padding: var(--grid-gap);
+  padding-top: calc(var(--grid-gap) + var(--nav-height));
+  margin-top: calc(-1 * var(--nav-height));
+}
+
+.grid-item {
+  display: block;
+  overflow: hidden;
+}
+
+.grid-item img,
+.grid-item picture img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.grid-item picture {
+  display: block;
+  width: 100%;
+}
+
+.grid-item img.loaded {
+  opacity: 1;
+}
+
+@media (hover: hover) {
+  .grid-item:hover img {
+    opacity: 0.85;
+  }
+}
+
+.grid-item__title {
+  display: block;
+  padding: 0.4rem 0 0.6rem;
+  font-size: clamp(11px, 0.85vw, 13px);
+  color: var(--color-text);
+  letter-spacing: 0.0125em;
+}
+
+/* ============================================================
+   Project pages
+   ============================================================ */
+
+.project {
+  padding: var(--x);
+  padding-top: calc(var(--x) + var(--nav-height));
+}
+
+.project__header {
+  margin-bottom: calc(var(--y) * 2);
+}
+
+.project__title {
+  font-size: clamp(13px, 1vw, 16px);
+  font-weight: 400;
+  letter-spacing: 0.0125em;
+}
+
+.project__meta {
+  margin-top: 0.4rem;
+  font-size: clamp(11px, 0.85vw, 13px);
+  color: var(--color-muted);
+}
+
+.project__meta-sep {
+  color: var(--color-border);
+}
+
+.project__meta a {
+  color: var(--color-muted);
+  text-underline-offset: 0.3em;
+  text-decoration-thickness: 1px;
+}
+
+@media (hover: hover) {
+  .project__meta a:hover {
+    color: var(--color-text);
+  }
+}
+
+.project__images {
+  display: flex;
+  flex-direction: column;
+  gap: var(--grid-gap);
+}
+
+.project__figure {
+  width: 100%;
+}
+
+.project__figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.project__figure img.loaded,
+.project__figure picture img.loaded {
+  opacity: 1;
+}
+
+.project__figure figcaption {
+  margin-top: 0.4rem;
+  font-size: clamp(11px, 0.85vw, 13px);
+  color: var(--color-muted);
+}
+
+.project__description {
+  max-width: 60ch;
+  margin-top: calc(var(--y) * 2);
+  font-size: clamp(13px, 1vw, 16px);
+  line-height: 1.5;
+  color: var(--color-muted);
+}
+
+.project__back {
+  display: inline-block;
+  margin-top: calc(var(--y) * 2);
+  font-size: clamp(13px, 1vw, 16px);
+  color: var(--color-muted);
+}
+
+@media (hover: hover) {
+  .project__back:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.3em;
+  }
+}
+
+/* ============================================================
+   About & single-column pages
+   ============================================================ */
+
+.page {
+  max-width: 60ch;
+  margin: 0 auto;
+  padding: calc(var(--y) * 3) var(--x) calc(var(--y) * 6);
+}
+
+.page h1 {
+  font-size: clamp(13px, 1vw, 16px);
+  font-weight: 400;
+  margin-bottom: calc(var(--y) * 1.5);
+}
+
+.page p {
+  margin-bottom: var(--y);
+  line-height: 1.5;
+}
+
+/* ============================================================
+   Contact form
+   ============================================================ */
+
+.contact-form {
+  margin-top: calc(var(--y) * 1.5);
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--y) * 1.5);
+}
+
+.contact-form__field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.contact-form__field label {
+  font-size: clamp(11px, 0.85vw, 13px);
+  color: var(--color-muted);
+  letter-spacing: 0.0125em;
+}
+
+.contact-form__field input,
+.contact-form__field textarea {
+  font-family: var(--font-main);
+  font-size: clamp(13px, 1vw, 16px);
+  font-weight: 400;
+  color: var(--color-text);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  padding: 0.4rem 0;
+  outline: none;
+  resize: vertical;
+  transition: border-color 150ms ease;
+}
+
+.contact-form__field input:focus,
+.contact-form__field textarea:focus {
+  border-bottom-color: var(--color-text);
+}
+
+.contact-form__field textarea {
+  min-height: 120px;
+}
+
+.contact-form__submit {
+  align-self: flex-start;
+  font-family: var(--font-main);
+  font-size: clamp(13px, 1vw, 16px);
+  font-weight: 400;
+  color: var(--color-text);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  letter-spacing: 0.0125em;
+  transition: color 150ms ease;
+}
+
+@media (hover: hover) {
+  .contact-form__submit:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.3em;
+  }
+}
+
+.contact__email {
+  margin-top: calc(var(--y) * 2);
+  font-size: clamp(11px, 0.85vw, 13px);
+  color: var(--color-muted);
+}
+
+.contact__success {
+  margin-top: var(--y);
+  font-size: clamp(13px, 1vw, 16px);
+  color: var(--color-muted);
+}
+
+/* ============================================================
+   Exhibition listing
+   ============================================================ */
+
+.exhibition-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: var(--y) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.exhibition-item:first-of-type {
+  border-top: 1px solid var(--color-border);
+}
+
+.exhibition-item a {
+  font-size: clamp(13px, 1vw, 16px);
+}
+
+@media (hover: hover) {
+  .exhibition-item a:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.3em;
+  }
+}
+
+.exhibition-item__meta {
+  font-size: clamp(11px, 0.85vw, 13px);
+  color: var(--color-muted);
+}
+
+/* ============================================================
+   Footer
+   ============================================================ */
+
+.footer {
+  padding: var(--x);
+  font-size: clamp(11px, 0.85vw, 13px);
+  color: var(--color-muted);
+  border-top: 1px solid var(--color-border);
+  margin-top: calc(var(--y) * 2);
+}

@@ -1,0 +1,29 @@
+---
+layout: base.njk
+---
+<main class="project">
+  <header class="project__header">
+    <h1 class="project__title">{{ title }}</h1>
+    <p class="project__meta">
+      {% if location %}<span>{{ location }}</span>{% endif %}
+      {% if location and year %}<span class="project__meta-sep">&thinsp;—&thinsp;</span>{% endif %}
+      {% if year %}<span>{{ year }}</span>{% endif %}
+    </p>
+  </header>
+
+  <div class="project__images">
+    {% for img in images %}
+    <figure class="project__figure">
+      <img src="{{ img }}" alt="{{ title }}" loading="lazy" decoding="async" />
+    </figure>
+    {% endfor %}
+  </div>
+
+  {% if content %}
+  <div class="project__description">
+    {{ content | safe }}
+  </div>
+  {% endif %}
+
+  <a href="/" class="project__back">← work</a>
+</main>

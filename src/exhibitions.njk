@@ -1,0 +1,17 @@
+---
+title: exhibitions
+layout: base.njk
+---
+<main class="page">
+  <h1>exhibitions</h1>
+  {% for exhibition in collections.exhibition | reverse %}
+  <div class="exhibition-item">
+    <a href="{{ exhibition.url }}">{{ exhibition.data.title }}</a>
+    <span class="exhibition-item__meta">
+      {% if exhibition.data.venue %}{{ exhibition.data.venue }}{% endif %}
+      {% if exhibition.data.venue and exhibition.data.dates %}&thinsp;—&thinsp;{% endif %}
+      {% if exhibition.data.dates %}{{ exhibition.data.dates }}{% endif %}
+    </span>
+  </div>
+  {% endfor %}
+</main>
