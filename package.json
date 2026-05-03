@@ -1,0 +1,38 @@
+{
+  "name": "photography-website",
+  "version": "1.0.0",
+  "description": "Repository to host the architecture photography portfolio of Lars van Straalen",
+  "main": "index.js",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy",
+    "lint": "eslint .eleventy.js && stylelint src/assets/css/**/*.css",
+    "lint:fix": "eslint .eleventy.js --fix && stylelint src/assets/css/**/*.css --fix",
+    "format": "prettier --write .eleventy.js src/assets/css/**/*.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaxvanderLinden/photography-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/MaxvanderLinden/photography-website/issues"
+  },
+  "homepage": "https://github.com/MaxvanderLinden/photography-website#readme",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.5",
+    "@11ty/eleventy-img": "^6.0.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.3.0",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.8.3",
+    "stylelint": "^17.10.0",
+    "stylelint-config-standard": "^40.0.0",
+    "stylelint-prettier": "^5.0.3"
+  }
+}
