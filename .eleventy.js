@@ -2,6 +2,9 @@ const Image = require("@11ty/eleventy-img");
 const fs = require("fs");
 const path = require("path");
 
+const isProduction = process.env.NODE_ENV === "production";
+const pathPrefix = isProduction ? "/photography-website/" : "/";
+
 async function imageShortcode(src, alt, sizes = "100vw") {
   // Resolve absolute paths relative to project root
   const resolved = src.startsWith("/")
@@ -17,7 +20,7 @@ async function imageShortcode(src, alt, sizes = "100vw") {
     widths: [400, 800, 1200, 1600],
     formats: ["webp", "jpeg"],
     outputDir: "./_site/assets/images/",
-    urlPath: "/assets/images/"
+    urlPath: `${pathPrefix}assets/images/`
   });
 
   let imageAttributes = {
@@ -40,6 +43,7 @@ module.exports = function(eleventyConfig) {
   });
 
   return {
+    pathPrefix,
     dir: {
       input: "src",
       output: "_site",
