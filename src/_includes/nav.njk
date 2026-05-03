@@ -1,9 +1,9 @@
 <nav class="nav">
-  <a href="/" class="nav__name">{{ site.name }}</a>
+  <a href="{{ '/' | url }}" class="nav__name">{{ site.name }}</a>
   <ul class="nav__links">
-    <li><a href="/">work</a></li>
-    <li><a href="/exhibitions/">exhibitions</a></li>
-    <li><a href="/about/">about</a></li>
-    <li><a href="/contact/">contact</a></li>
+    <li><a href="{{ '/' | url }}">work</a></li>
+    <li><a href="{{ '/exhibitions/' | url }}">exhibitions</a></li>
+    <li><a href="{{ '/about/' | url }}">about</a></li>
+    <li><a href="{{ '/contact/' | url }}">contact</a></li>
   </ul>
 </nav>
