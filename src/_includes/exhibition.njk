@@ -24,7 +24,7 @@ layout: base.njk
   <div class="project__images">
     {% for img in images %}
     <figure class="project__figure">
-      <img src="{{ img }}" alt="{{ title }}" loading="lazy" decoding="async" />
+      <img src="{{ img | url }}" alt="{{ title }}" loading="lazy" decoding="async" />
     </figure>
     {% endfor %}
   </div>
