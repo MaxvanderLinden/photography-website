@@ -2,8 +2,7 @@ const Image = require("@11ty/eleventy-img");
 const fs = require("fs");
 const path = require("path");
 
-const isProduction = process.env.NODE_ENV === "production";
-const pathPrefix = isProduction ? "/photography-website/" : "/";
+const pathPrefix = "/";
 
 async function imageShortcode(src, alt, sizes = "100vw") {
   // Resolve absolute paths relative to project root
